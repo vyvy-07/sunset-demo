@@ -1,0 +1,378 @@
+// bestservices
+.bestservices {
+    &__sliderservices {
+        --mg-top: 80px;
+        margin-top: var(--mg-top);
+        height: 100%;
+        width: 100%;
+        @include xs {
+            --mg-top: 40px;
+        }
+        .flickity-viewport {
+            @include xs {
+                min-height: 200px;
+            }
+        }
+        &-img {
+            overflow: hidden;
+            position: relative;
+            width: 50%;
+            margin: 0 27px;
+            min-height: 440px;
+            @include xs {
+                margin: 0 10px;
+                min-height: 200px;
+                // height: 100%;
+            }
+            img {
+                @include position;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .h3-oswald {
+                @include position;
+                z-index: 20;
+            }
+        }
+        .flickity-page-dots {
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+            height: 1px;
+            background-color: $yellow-cl;
+            position: relative;
+            @include transition(0.4s);
+            .dot {
+                position: relative;
+                top: -10px;
+                width: 50px;
+                height: 5px;
+                margin: 0;
+                display: inline-block;
+                border-radius: initial;
+                opacity: initial;
+                cursor: pointer;
+                background-color: transparent;
+                @include transition(0.4s);
+                &.is-selected {
+                    @include transition(0.4s);
+                    background-color: $yellow-cl;
+                }
+            }
+        }
+    }
+}
+
+// sccoffee
+.sccoffee {
+    position: relative;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gap24);
+        @include sm {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+    }
+    &__left {
+        grid-column: 1/6;
+        @include sm {
+            grid-column: 1/2;
+        }
+        .listcontent {
+            &__item {
+                @include dflex;
+                margin-bottom: 8px;
+                &-img {
+                    display: flex;
+                    padding: 25px 0;
+                    img {
+                        width: 100%;
+                    }
+                }
+                &-detail {
+                    flex: 1;
+                    margin-left: 22px;
+                }
+            }
+        }
+    }
+    &__right {
+        grid-column: 7/13;
+        position: relative;
+        @include md {
+            align-items: center;
+            display: grid;
+        }
+        @include sm {
+            grid-column: 1/2;
+        }
+        &-banner {
+            object-fit: cover;
+            overflow: hidden;
+            width: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &-main {
+            @include position;
+            .text {
+                text-align: center;
+                white-space: nowrap;
+                padding-bottom: var(--pd64);
+                @include md {
+                    --pd64: 42px;
+                }
+                @include xs {
+                    --pd64: 32px;
+                }
+                .h2-cormorant {
+                    margin-bottom: 16px;
+                    @include xs {
+                        --fsh2: 55px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .button {
+                --btn-w: 206px;
+                max-width: var(--btn-w);
+                margin: 0 auto;
+                background-color: $white-cl;
+                @include transition(0.4s);
+                a {
+                    color: $black-cl;
+                }
+                &:hover {
+                    @include transition(0.4s);
+                    background-color: $yellow-cl;
+                }
+            }
+        }
+    }
+    &__circlelogo {
+        position: absolute;
+        bottom: -50px;
+        right: 0;
+        pointer-events: none;
+        @include md {
+            --max-w: 180px;
+            max-width: var(--max-w);
+            bottom: 0;
+        }
+        @include xs {
+            --max-w: 100%;
+        }
+        @include xxs {
+            --max-w: 100px;
+        }
+    }
+}
+
+// countnumber
+.countnumber {
+    .listnumber {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: var(--gap24);
+        text-align: center;
+        @include xs {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr 1fr;
+        }
+        &__item {
+            &-text {
+                font-family: mr;
+                font-size: var(--fs16);
+                line-height: var(--lh30);
+            }
+        }
+    }
+}
+
+// pricing
+.pricing {
+    position: relative;
+    background: rgb(21, 27, 32);
+    background: linear-gradient(180deg, rgba(21, 27, 32, 1) 65%, rgba(14, 19, 23, 1) 65%);
+    .textbox {
+        position: relative;
+        position: relative;
+        z-index: 40;
+        height: 100%;
+        h4,
+        h3,
+        .line {
+            position: relative;
+            z-index: 40;
+        }
+        .bgr-textbox {
+            --lh356: 356px;
+            --fs240: 240px;
+            --cl-price: #0e1317;
+            width: 100%;
+            letter-spacing: 0.15em;
+            font-family: ol;
+            font-size: var(--fs240);
+            line-height: var(--lh356);
+            position: absolute;
+            color: var(--cl-price);
+            top: 0;
+            @include position;
+            text-transform: uppercase;
+            @include xs {
+                --lh356: 106px;
+                --fs240: 140px;
+                letter-spacing: 0.075em;
+            }
+            @include xs {
+                --fs240: 130px;
+            }
+        }
+    }
+    &__listprice {
+        @include dflex;
+        text-align: center;
+        padding-top: 110px;
+        margin: 0 -12px;
+        position: relative;
+        @include md {
+            flex-wrap: wrap;
+            // margin: 0 -30px;
+        }
+        &-item {
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            margin: 0 12px;
+            width: calc(100% / 3);
+            border: 1px solid $yellow-cl;
+            padding: 40px 0;
+            @include md {
+                width: calc(100% / 2 - 60px);
+                margin: 0 0 40px;
+                padding-bottom: 40px;
+            }
+            @include xs {
+                width: 340px;
+                // margin: 0 30px;
+            }
+            .pricing-top {
+                @include md {
+                    padding: 28px 0;
+                }
+                .listnumber__item {
+                    &-number {
+                        --fs60: 60px;
+                        --lh89: 89px;
+                        font-size: var(--fs60);
+                        line-height: var(--lh89);
+                        @include sm {
+                            --fs60: 40px;
+                            --lh89: 79px;
+                        }
+                    }
+                }
+                .line {
+                    width: 100%;
+                    @include positionX;
+                    &::before,
+                    &::after {
+                        width: 100%;
+                    }
+                    .line-decor {
+                        padding: 6px;
+                        margin: 0;
+                    }
+                }
+                .text-h1 {
+                    margin-bottom: 30px;
+                    color: $yellow-cl;
+                    text-transform: uppercase;
+                }
+            }
+            .pricing-bottom {
+                padding-top: 30px;
+                .bottom__content {
+                    padding-bottom: 30px;
+                    white-space: nowrap;
+                    p {
+                        margin: 16px 0;
+                        font-size: var(--fs24);
+                        line-height: var(--lh40);
+                        @include sm {
+                            --fs24: 18px;
+                            --lh40: 30px;
+                        }
+                    }
+                }
+            }
+            &.--bgr {
+                .pricing-top {
+                    @include md {
+                        padding: 0 0;
+                    }
+                }
+                background-color: $bg-blacklight;
+                .itembgr {
+                    background-color: $bg-blacklight;
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+                .logocircle {
+                    z-index: 3;
+                    top: 50px;
+                    right: -30px;
+                    @include md {
+                        top: 0;
+                        right: o;
+                    }
+                }
+            }
+        }
+        .button {
+            --maxw-button: 180px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.masterchef {
+    padding: 0 60px 120px 60px;
+    @include xs {
+        padding: 60px 15px;
+    }
+    @include dflex;
+    .img-chef {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    @include md {
+        flex-wrap: wrap;
+    }
+    &__main {
+        --mx-w: 485px;
+        max-width: var(--max-w);
+        margin: 0 33px;
+        text-align: center;
+        @include xs {
+            --max-w: 360px;
+            margin: 0;
+        }
+    }
+    .content {
+        .description {
+            padding: 24px 0 24px;
+        }
+    }
+}

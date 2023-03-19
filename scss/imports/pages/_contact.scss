@@ -1,0 +1,52 @@
+.--contactsign {
+    padding: var(--pd-sc);
+    .scsign__left {
+        .form {
+            width: 100%;
+            .button {
+                max-width: 150px;
+            }
+        }
+    }
+    .content {
+        @include xs {
+            --pd60: 0;
+        }
+        .footer__contact {
+            .footer__contact-item {
+                .text {
+                    .title {
+                        font-family: ol;
+                        font-size: var(--fs24);
+                        line-height: var(--lh40);
+                    }
+                }
+            }
+        }
+        .listsocial {
+            margin: 0 -8px;
+            &__item {
+                svg {
+                    background-color: $yellow-cl;
+                    border-radius: 100%;
+                    margin: 0 8px;
+                }
+            }
+        }
+    }
+}
+
+.map {
+    &__iframe {
+        --h-map: 600px;
+        width: 100%;
+        height: var(--h-map);
+        @include xs {
+            --h-map: 300px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,238 @@
+// css header
+.header {
+    --height-header: 100px;
+    width: 100%;
+    height: var(--height-header);
+    position: relative;
+    background-color: $black-cl;
+    z-index: 90;
+    .container-fluid {
+        height: 100%;
+        @include dflex;
+        justify-content: space-between;
+    }
+    .iconmenu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        @include transition(0.4s);
+        &::before,
+        &::after,
+        span {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background-color: $white-cl;
+            display: block;
+            @include transition(0.4s);
+        }
+        span {
+            margin: 4px 0;
+        }
+        &.active {
+            @include transition(0.4s);
+            &::after {
+                content: "";
+                width: 15px;
+                display: block;
+                transform: rotate(45deg);
+                @include transition(0.4s);
+            }
+            span {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                display: none;
+                margin: 5px 0;
+            }
+            &::before {
+                content: "";
+                width: 15px;
+                display: block;
+                transform: rotate(-50deg);
+                @include transition(0.4s);
+            }
+        }
+    }
+    .menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        @include dflex;
+        padding: 0 -12px;
+        li {
+            a {
+                padding: 0 12px;
+                white-space: nowrap;
+                color: var(--white-cl);
+                font-family: ol;
+                // font-weight: 400;
+                font-size: var(--fs14);
+                line-height: var(--lh20);
+                @include transition(0.4s);
+                &:hover {
+                    color: $yellow-cl;
+                    @include transition(0.4s);
+                }
+                &.active {
+                    color: $yellow-cl;
+                    @include transition(0.4s);
+                }
+            }
+        }
+    }
+    &__left {
+        @include dflex;
+        &-lang {
+            @include transition(0.4s);
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+            &.active {
+                @include transition(0.4s);
+                .down {
+                    @include transition(0.4s);
+                    @include opacity1;
+                }
+            }
+            span {
+                color: var(--white-cl);
+                font-family: ol;
+                font-size: var(--fs14);
+                line-height: var(--lh20);
+                padding: 20px 40px;
+            }
+            .down {
+                @include transition(0.4s);
+                @include opacity0;
+                @include positionX;
+                @include sm {
+                    @include positionX;
+                    right: -50px;
+                    left: initial;
+                }
+                .item {
+                    background: $black-cl;
+                    padding: 10px 30px;
+                    text-align: center;
+                    a {
+                        color: var(--white-cl);
+                        font-family: ol;
+                        font-size: var(--fs14);
+                        line-height: var(--lh20);
+                    }
+                }
+            }
+            &:hover {
+                color: $yellow-cl;
+                @include transition(0.4s);
+            }
+        }
+    }
+}
+
+@include md {
+    .header {
+        --height-header: 80px;
+        .menu {
+            padding: 0 -6px;
+            li {
+                a {
+                    padding: 0 6px;
+                    font-size: var(--fs14);
+                }
+            }
+        }
+        &__left {
+            &-lang {
+                @include transition(0.4s);
+            }
+        }
+    }
+}
+
+@include sm {
+    .header {
+        --height-header: 60px;
+        position: relative;
+        .iconmenu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            cursor: pointer;
+            @include transition(0.4s);
+        }
+        .logo {
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .menu {
+            @include transition(0.4s);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            justify-content: start;
+            padding-top: 30px;
+            z-index: 0;
+            width: 100%;
+            height: calc(100vh - var(--height-header));
+            background-color: $bg-blacklight;
+            position: absolute;
+            top: 59px;
+            flex-direction: column;
+            li {
+                width: 100%;
+                text-align: center;
+                a {
+                    font-size: --fs24;
+                    @include dflex;
+                    padding: 10px 0;
+                }
+                &:active {
+                    background-color: $greyblack-cl;
+                    @include transition(0.4s);
+                    a {
+                        color: $yellow-cl;
+                    }
+                }
+            }
+            &.active {
+                z-index: 100;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                cursor: pointer;
+                @include transition(0.4s);
+            }
+        }
+        &__left {
+            &-lang {
+                padding: initial;
+                span {
+                    padding: initial;
+                }
+            }
+            .button {
+                display: none;
+            }
+        }
+    }
+}
+
+.top {
+    position: fixed;
+    right: 25px;
+    z-index: 1000;
+    bottom: 0;
+    cursor: pointer;
+    @include opacity0;
+    &.active {
+        @include opacity1;
+    }
+}

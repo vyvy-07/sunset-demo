@@ -1,0 +1,125 @@
+.--abouthero {
+    .hero__textbox {
+        &-right {
+            @include xs {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}
+
+.--inforestaurant {
+    position: relative;
+    .container {
+        flex-direction: column;
+    }
+    .content {
+        @include sm {
+            padding-top: 40px;
+        }
+        .textbox {
+            position: relative;
+        }
+        .title-res {
+            position: relative;
+            font-family: ol;
+            --fs72: 72px;
+            --lh80: 80px;
+            font-size: var(--fs72);
+            line-height: var(--lh80);
+            @include xs {
+                --fs72: 55px;
+                --lh80: 65px;
+            }
+        }
+        .info {
+            display: flex;
+            padding-top: 32px;
+            &__item {
+                &:first-child {
+                    padding-right: 50px;
+                }
+                &-title {
+                    font-family: ol;
+                    font-size: var(--h3-fs);
+                    line-height: 50px;
+                    margin-bottom: 10px;
+                }
+                &-contact {
+                    .contact-item {
+                        display: flex;
+                        margin-bottom: 5px;
+                        @include xs {
+                            flex-direction: column;
+                        }
+                        .cta {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                &-listlink {
+                    display: flex;
+                    flex-direction: column;
+                    .text-b1 {
+                        color: $white-cl;
+                        font-family: mr;
+                        text-decoration: underline;
+                    }
+                }
+                .listsocial {
+                    padding-top: 40px;
+                    margin: 0 -12px;
+                    text-align: center;
+                    @include xs {
+                        padding-top: 20px;
+                    }
+                    &__item {
+                        margin: 0 12px;
+                        @include xs {
+                            margin: 0 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.philosophy {
+    &__list {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap);
+        @include sm {
+            --gap: 15px;
+        }
+        @include xs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &-item {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            @include sm {
+                text-align: center;
+                flex-direction: column;
+            }
+            .img {
+                height: 100%;
+                margin-right: 25px;
+                @include sm {
+                    margin-right: 10px;
+                }
+                img {
+                    max-width: 58px;
+                    height: 60px;
+                }
+            }
+            .mainpl {
+            }
+        }
+    }
+}

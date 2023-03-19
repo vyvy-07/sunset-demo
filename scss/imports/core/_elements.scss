@@ -1,0 +1,54 @@
+.h2-cormorant {
+    --fsh2: 72px;
+    --lh87: 87px;
+    font-family: ci;
+    font-size: var(--fsh2);
+    line-height: var(--lh87);
+    @include xs {
+        --fsh2: 52px;
+        --lh87: 57px;
+    }
+    @include xxs {
+        --fsh2: 27px;
+        --lh87: 37px;
+    }
+}
+
+.h3-oswald {
+    font-family: ol;
+    font-size: var(--h3-fs);
+    line-height: var(--h3-lh);
+    margin-top: 8px;
+    margin-bottom: 17px;
+    @include xs {
+        --h3-fs: 30px;
+    }
+    @include xxs {
+        --h3-lh: 44px;
+    }
+}
+
+.h4-oswald {
+    font-family: ol;
+    font-size: var(--fs24);
+    line-height: var(--lh40);
+}
+
+.h4-cormorant {
+    font-family: ci;
+    font-size: var(--fs24);
+    line-height: var(--lh40);
+    color: $yellow-cl;
+}
+
+.text-b1 {
+    font-family: mr;
+    font-size: var(--fs16);
+    line-height: var(--lh30);
+}
+
+.text-b2 {
+    font-family: mr;
+    font-size: var(--fs14);
+    line-height: var(--lh30);
+}

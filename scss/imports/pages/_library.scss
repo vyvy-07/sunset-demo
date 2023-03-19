@@ -1,0 +1,59 @@
+.sclibrary {
+    .container {
+        padding-bottom: var(--pd64);
+    }
+    &__nav {
+        @include dflex;
+        position: relative;
+        width: 100%;
+        @include transition(0.4s);
+        &-item {
+            cursor: pointer;
+            position: relative;
+            color: $white-cl;
+            font-family: ol;
+            font-size: var(--fs14);
+            line-height: var(--lh30);
+            border-bottom: 1px solid $yellow-cl;
+            padding: 13px 12px;
+            @include transition(0.4s);
+            text-transform: uppercase;
+            @include xxs {
+                padding: 8px 5px;
+            }
+            &:hover {
+                color: $yellow-cl;
+                @include transition(0.4s); // border-bottom: 3px solid $yellow-cl;
+            }
+            &::after {
+                content: "";
+                height: 3px;
+                width: 100%;
+                display: block;
+                margin-bottom: -2px;
+                background-color: $yellow-cl;
+                position: absolute;
+                bottom: 0;
+                @include opacity0;
+            }
+            &.active {
+                color: $yellow-cl;
+                @include transition(0.4s);
+                &::after {
+                    @include opacity1;
+                }
+            }
+        }
+    }
+    &__list {
+        .boxs {
+            @include opacity0;
+            display: none;
+            &.active {
+                @include transition(0.4s);
+                @include opacity1;
+                display: grid;
+            }
+        }
+    }
+}
